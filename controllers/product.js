@@ -5,12 +5,15 @@ const fs = require("fs");
 const { sortBy } = require("lodash");
 
 exports.getProductById = (req, res, next, id) => {
+  // console.log(id);
   Product.findById(id)
     .populate("category")
     .exec((err, product) => {
-      if (err || !product)
+      if (err )
         return res.status(404).json({ message: "Product not found" });
       req.product = product;
+      // console.log(req.product);
+
       next();
     });
 };
@@ -47,7 +50,7 @@ exports.createProduct = (req, res) => {
 };
 
 exports.getProductDetail = (req, res) => {
-  req.product.photo = undefined;
+  // console.log(req.product);
   return res.json(req.product);
 };
 

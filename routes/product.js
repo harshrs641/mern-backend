@@ -11,7 +11,7 @@ const {
 } = require("../controllers/product");
 const { getUserById } = require("../controllers/user");
 
-router.param("productId", isSignedIn, isAuthenticated, getProductById);
+router.param("productId", getProductById);
 router.post(
   "/product/create",
   isSignedIn,

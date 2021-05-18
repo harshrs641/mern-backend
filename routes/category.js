@@ -26,7 +26,7 @@ router.post(
 );
 
 router.get("/category/:categoryId", getCategoryDetail);
-router.get("/categories/", getAllCategory);
+router.get("/categories", getAllCategory);
 router.patch(
   "/category/:categoryId/:userId",
   isSignedIn,
